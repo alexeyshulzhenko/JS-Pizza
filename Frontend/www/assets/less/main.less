@@ -128,13 +128,16 @@ body {
 
 .main {
     background-color: #fffff5;
-    padding-top: 80px;
     
     .firstBlock {
             margin: auto;
             padding-left: 30px;
             padding-right: 360px;
             max-width: 1354px;
+        
+        @media (max-width: 800px) {
+            max-width: 590px;
+        }
             
         .tittle {
              text-align: center;
@@ -157,6 +160,53 @@ body {
                     
                 }
             }
+        }
+        .pizza-card {
+                position: relative;
+                padding-top: 30px;
+            
+            .newPizzaLable {
+                
+                position:  absolute;
+               font-size: 20px;
+                top: 12px;
+                right: -1px;
+            }
+            
+            .prodName {
+                color: @mainColor;
+            }
+            .pizzaType {
+                color: @greyLetterColor;
+            }
+            .caption {
+                text-align: center;
+              
+                .ingridients {
+                    height: 90px;
+                }
+                .leftClmn {
+                    right: 0;
+                    left: 0;
+                    display: inline-block;
+                    width: 50%;
+                    text-align: center;
+                    
+
+                }
+                .rightClmn {
+                    left: 0;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .price{
+                    
+                    .nums{
+                        color: black!important;
+                    }
+                }
+            }
+            
         }
     }
     .secondBlock {
@@ -202,6 +252,47 @@ body {
             height: 80%;
             width: 100%;
             margin-top: 15px;
+            
+            .orderedPizza {
+                border-bottom: 1px solid black;
+                position: relative;
+                padding: 20px 61px 10px 24px;
+                
+                
+                h4 {
+                    color: @mainColor;
+                    left: 10px;
+                }
+                .size {
+                    display: inline-block;
+                    
+                }
+                
+                .weight {
+                    margin-left: 25px;
+                    display: inline-block;
+                }
+                .calculate {
+                    display: inline-block;
+                }
+                
+                .plusBtn {
+                    color: red;
+                }
+                
+                .minusBtn {
+                    color: green;
+                }
+                .piza-part {
+                    position: absolute;
+                    width: 96px;
+                    height: 96px;
+                    right: -48px;
+                    top: 20px;
+                    border-radius: 50% 0 0 50%;
+                        
+                }
+            }
         }
         .billBox {
             
@@ -211,6 +302,7 @@ body {
                 border-top: 1px solid rgba(0,0,0,.1);
             
             .orderBtn {
+                
                 padding: 20px;
                 padding-right: 40px;
               
@@ -230,6 +322,7 @@ body {
 }
 .btn-primary {
     background-color: #f0ad4e;
+    border: none;
 }
 
 .btn-primary:hover {
