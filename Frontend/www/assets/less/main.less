@@ -1,3 +1,244 @@
-@mainColor: blue;
-
+@mainColor: #ea862e;
+@buttonColorMain: #f0ad4e;
+@whiteLetterColor: #fff;
+@greyLetterColor: #a1a1a1;
 @import "pizza/pizza-card";
+
+body { 
+    padding-top: 70px; 
+    font-size: 14px!important;
+}
+
+.discount {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 9px;
+    background-color: @mainColor;    
+    width: 100px;
+    color: @whiteLetterColor;
+    padding: 10px;
+    border-left: 1px solid #d16200;
+    border-right: 1px solid #d16200;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    
+    .discountImageBottom {
+        margin: 0!iportant;
+        padding: 0!important;
+        position: absolute;
+        top: -11px;
+        left: -1px;
+        
+    }
+    
+    .discountBlock {
+        
+        border-bottom: 2px dotted #d16200;
+        border-bottom-width: 2px;
+        border-bottom-style: dotted;
+        border-bottom-color: rgb(209, 99, 1);
+        margin-bottom: 7px;
+        padding-bottom: 3px;
+    }
+    
+}
+.navbar-fixed-top {
+    background-color: rgba(0,0,0,.8);;
+    
+    margin-bottom: 20px;
+    padding-left: 130px;
+    padding-right: 350px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    z-index: 20;
+    @media (max-width: 800px){
+        .top-panel {
+            padding-right: 285px;
+            padding-left: 115px;
+        }
+    }
+    .logo {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        background-color: @mainColor;
+        width: 100px;
+        height: 90px;
+        border-left: 1px solid #d16200;
+        border-right: 1px solid #d16200;
+        padding: 10px;
+        left: 9px;
+        color: @whiteLetterColor;
+        position: fixed;
+        display: inline-block;
+        text-align: center;
+        font-size: 19px!important;
+        opacity: 1!important;
+      
+        
+        .secondWord {
+            font-size: 20px;
+        }
+        .dicountImageTop {
+            
+            transform: rotate(180deg);
+            margin: 0!iportant;
+            padding: 0!important;
+            position: absolute;
+            bottom: -11px;
+            right: -1px;
+            
+        }
+    }
+    
+    
+    .firstLineNav {
+            width: 100%;
+            font-size: 12px;
+            line-height: 11px;
+            margin: 0;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid;
+            color: @greyLetterColor;
+            opacity: 0.9;
+            
+        .phone {
+            font-size: 20px;
+        }    
+        .firstLineItem{
+            padding-right: 30px;
+            padding-bottom: 15px;        
+
+        }
+        .navbar-btn {
+            float: right;
+            margin-top: -11px;
+        }
+    }
+    .pizzaWordNaw {
+        opacity: 0.9;
+        color: @whiteLetterColor;
+        text-decoration: none;
+        font-size: 16px;
+
+    }
+    
+}
+
+.main {
+    background-color: #fffff5;
+    padding-top: 80px;
+    
+    .firstBlock {
+            margin: auto;
+            padding-left: 30px;
+            padding-right: 360px;
+            max-width: 1354px;
+            
+        .tittle {
+             text-align: center;
+             display: inline;
+        }
+        .pizzaNav {
+            text-align: center;
+            color: @mainColor;
+            
+            ul {
+                display: inline-block;
+                a {
+                    color:@mainColor; 
+                }
+                .active {
+                    a{
+                    color: @whiteLetterColor;
+                    background-color: @mainColor;
+                    }
+                    
+                }
+            }
+        }
+    }
+    .secondBlock {
+        background-color: @whiteLetterColor;
+        height: 100%;
+        position: fixed!important;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding-top: 35px;
+        margin-left: 20px;
+        padding-right: 0!important;
+        padding-left: 0!important;
+        min-width: 330px;
+        width: 330px;
+        height: 100%;
+        z-index: 50;
+        background: #fff;
+        box-shadow: rgba(0,0,0,.2) -3px 3px 10px;
+        
+        .orderBoxNav {
+            
+            padding-bottom: 13px;
+            padding-left: 15px;
+            .orderWord{
+                color: black;
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            .clearOrder {
+                color: @greyLetterColor;
+                float: right;
+                margin-top: 5px;
+                padding-right: 15px;
+                font-size: 10px;
+                line-height: 11px;
+                font-weight: 400;
+            }
+        }
+        .orderBox {
+            background-color: #F5F5F5;
+            height: 80%;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .billBox {
+            
+                display: block!important;
+                width: 100%;
+                padding: 10px!important;
+                border-top: 1px solid rgba(0,0,0,.1);
+            
+            .orderBtn {
+                padding: 20px;
+                padding-right: 40px;
+              
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: @whiteLetterColor;
+    padding: 40px 0;
+    color: grey;
+    border-top: 1px solid #e5e5e5;
+    padding-right: 330px!important;
+    text-align: center;
+    
+}
+.btn-primary {
+    background-color: #f0ad4e;
+}
+
+.btn-primary:hover {
+    background-color: @mainColor;
+}
+
+.orangeBox{
+    display: inline;
+
+    background-color:@mainColor; 
+}
+
