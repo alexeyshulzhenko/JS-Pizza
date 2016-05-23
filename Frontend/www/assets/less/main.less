@@ -254,7 +254,7 @@ body {
             margin-top: 15px;
             
             .orderedPizza {
-                border-bottom: 1px solid black;
+                border: 1px solid #ddd;
                 position: relative;
                 padding: 20px 61px 10px 24px;
                 
@@ -272,17 +272,24 @@ body {
                     margin-left: 25px;
                     display: inline-block;
                 }
-                .calculate {
+                
+                .price {
                     display: inline-block;
+                    color: #000;
                 }
                 
-                .plusBtn {
-                    color: red;
-                }
+                .calculate {
+                    margin: 4px;
+                    display: inline-block;
+                    font-weight: 700;
+               
                 
-                .minusBtn {
-                    color: green;
+                    .roundBtn {
+                        margin: 4px;
+                        border-radius: 15px;
+                    }
                 }
+              
                 .piza-part {
                     position: absolute;
                     width: 96px;
