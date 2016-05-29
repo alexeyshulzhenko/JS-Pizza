@@ -1,13 +1,13 @@
 {
-  "name": "Pizza",
+  "name": "pizza",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Pizza store",
+  "main": "/www/assetst/js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alexey Shulzhenko",
+  "license": "UNLICENSED",
   "dependencies": {
     "basil.js": "^0.4.3",
     "brfs": "^1.4.3",
@@ -15,5 +15,22 @@
     "grunt": "^0.4.5",
     "grunt-browserify": "^4.0.1",
     "grunt-contrib-watch": "^0.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyshulzhenko/JS-Pizza.git"
+  },
+  "keywords": [
+    "pizza",
+    "javascript",
+    "kma_pizza"
+  ],
+  "bugs": {
+    "url": "https://github.com/alexeyshulzhenko/JS-Pizza/issues"
+  },
+  "homepage": "https://github.com/alexeyshulzhenko/JS-Pizza#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0"
   }
 }
