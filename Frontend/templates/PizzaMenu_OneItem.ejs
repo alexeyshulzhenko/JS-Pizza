@@ -26,6 +26,9 @@ if(pizza.small_size)	{
 var info	=	pizza.small_size;
 }
 
+if(pizza.big_size)	{
+var infoBig	=	pizza.big_size;
+}
 
    %>
 
@@ -66,14 +69,14 @@ var info	=	pizza.small_size;
                                     <div class="rightClmn ">
                                         <div class="size"> 
                                             <img src="assets/images/size-icon.svg"/>
-                                            40
+                                            <%=	infoBig.size %>
                                         </div>
                                         <div class="weight">
                                             <img src="assets/images/weight.svg"/>
-                                            660
+                                            <%=	infoBig.weight %>
                                         </div>
                                         <div class="price">
-                                            <h3 class="nums">169<br>
+                                            <h3 class="nums"><%=	infoBig.price %><br>
                                                 грн.
                                             </h3>
                                         </div>
