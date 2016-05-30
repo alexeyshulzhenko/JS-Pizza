@@ -18,17 +18,20 @@ function getIngredientsArray(pizza) {
 
 function	getPizzaColumn(pizza)	{
     if(pizza.big_size&&	pizza.small_size)	{
-    return	"col-sm-6";
-    }	else	{	return	"col-sm-12";}
+    return	"none";
+    }	
 }
 
+var info = 0;
 if(pizza.small_size)	{
 var info	=	pizza.small_size;
 }
 
-if(pizza.big_size)	{
-var infoBig	=	pizza.big_size;
+var infoBig = 0;
+if(pizza.big_size) {
+    var infoBig = pizza.big_size;
 }
+
 
    %>
 
@@ -40,16 +43,14 @@ var infoBig	=	pizza.big_size;
                                     <% } %>
 
                             <div class="thumbnail ">
-                                 <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
-                                
-                                
+                                <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
                                 <div class="caption">
                                     
                                     <h3 class="prodName"><%= pizza.title %></h3>
                                     <div class="pizzaType"><%= pizza.type %></div>
                                     <div class="ingridients"><%= getIngredientsArray(pizza).join(", ") %></div>
                                     
-                                    <div class="leftClmn <%=	getPizzaColumn(pizza)	%>">
+                                    <div class="leftClmn">
                                         
                                         <div class="size"> 
                                             <img src="assets/images/size-icon.svg"/>
@@ -64,23 +65,23 @@ var infoBig	=	pizza.big_size;
                                                 грн.
                                             </h3>
                                         </div>
-                                        <a href="#" class="btn btn-primary">Купити</a>
+                                        <a href="#" class="addToCart btn btn-primary">Купити</a>
                                     </div>
-                                    <div class="rightClmn ">
-                                        <div class="size"> 
+                                    <div class="rightClmn" display="<%= getPizzaColumn(pizza) %>">
+                                        <div class="sizeR"> 
                                             <img src="assets/images/size-icon.svg"/>
-                                            <%=	infoBig.size %>
+                                            <%= infoBig.size %>
                                         </div>
                                         <div class="weight">
                                             <img src="assets/images/weight.svg"/>
-                                            <%=	infoBig.weight %>
+                                          <%= infoBig.weight %>
                                         </div>
                                         <div class="price">
-                                            <h3 class="nums"><%=	infoBig.price %><br>
+                                            <h3 class="nums"><%= infoBig.price %><br>
                                                 грн.
                                             </h3>
                                         </div>
-                                        <a href="#" class="btn btn-primary">Купити</a>
+                                        <a href="#" class="addToCart btn btn-primary">Купити</a>
                                     </div>
 
                                 </div>
