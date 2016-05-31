@@ -16,10 +16,22 @@ function getIngredientsArray(pizza) {
     return result;
 }
 
-function	getPizzaColumn(pizza)	{
-    if(pizza.big_size&&	pizza.small_size)	{
-    return	"none";
+function	getBigPizzaColumn(pizza)	{
+    if(pizza.big_size)	{
+    return	"";
     }	
+    else {
+        return "none";    }
+    
+}
+
+function	getSmallPizzaColumn(pizza)	{
+    if(pizza.small_size)	{
+    return	"";
+    }	
+    else {
+        return "none";    }
+    
 }
 
 var info = 0;
@@ -50,9 +62,9 @@ if(pizza.big_size) {
                                     <div class="pizzaType"><%= pizza.type %></div>
                                     <div class="ingridients"><%= getIngredientsArray(pizza).join(", ") %></div>
                                     
-                                    <div class="leftClmn">
+                                    <div class="leftClmn"  style="display: <%=	getSmallPizzaColumn(pizza)	%>;">
                                         
-                                        <div class="size"> 
+                                        <div class="sizeR"> 
                                             <img src="assets/images/size-icon.svg"/>
                                             <%=	info.size %>
                                         </div>
@@ -65,9 +77,9 @@ if(pizza.big_size) {
                                                 грн.
                                             </h3>
                                         </div>
-                                        <a href="#" class="addToCart btn btn-primary">Купити</a>
+                                        <button class="buy-small btn btn-primary">Купити</button>
                                     </div>
-                                    <div class="rightClmn" display="<%= getPizzaColumn(pizza) %>">
+                                    <div class="rightClmn" style="display: <%=	getBigPizzaColumn(pizza)	%>;">
                                         <div class="sizeR"> 
                                             <img src="assets/images/size-icon.svg"/>
                                             <%= infoBig.size %>
@@ -81,7 +93,7 @@ if(pizza.big_size) {
                                                 грн.
                                             </h3>
                                         </div>
-                                        <a href="#" class="addToCart btn btn-primary">Купити</a>
+                                        <button class="buy-big btn btn-primary">Купити</button>
                                     </div>
 
                                 </div>
