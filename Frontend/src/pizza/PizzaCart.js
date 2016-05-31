@@ -72,7 +72,7 @@ function initialiseCart() {
         Cart=saved_pizza;
     }
 
-    var saved_sum=Storage.get('totality');
+    var saved_sum=Storage.get('resSum');
     if(saved_sum){
         $(".resSum").text(saved_sum+" грн.");
         total=parseInt($(".resSum").text());
@@ -96,28 +96,42 @@ function updateCart() {
     //Онволення однієї піци
     function showOnePizzaInCart(cart_item) {
         var html_code = Templates.PizzaCart_OneItem(cart_item);
-        console.log("cart_item ", cart_item);
+        
         var $node = $(html_code);
         var pricing=parseInt($node.find(".price").text());
         
         $node.find(".plusBtn").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
-
+            total += pricing;
+            $(".resSum").text(total+" грн.");
             //Оновлюємо відображення
             updateCart();
         });
         
-        $node.find(".minusBtn").click(function(){
-            //Збільшуємо кількість замовлених піц
-            cart_item.quantity -= 1;
+        
+        if(cart_item.quantity != 0){
+            $node.find(".minusBtn").click(function(){
+                //Збільшуємо кількість замовлених піц
+                cart_item.quantity -= 1;
 
-            //Оновлюємо відображення
+                total -= pricing;
+                $(".resSum").text(total+" грн.");
+
+                //Оновлюємо відображення
+                updateCart();
+            });
+        }
+        else {
+             removeFromCart(cart_item);
+            total -= pricing*counter;
+                $(".resSum").text(total+" грн.");
             updateCart();
-        });
+        }
+        
         $cart.append($node);
         
-        $node.find(".clearOrder").click(function () {
+        $node.find(".count-clear").click(function () {
             removeFromCart(cart_item);
             total -= pricing*counter;
             $(".resSum").text(total+" грн.");
@@ -127,7 +141,7 @@ function updateCart() {
     }
     
     Cart.forEach(showOnePizzaInCart);
-
+    Storage.set("resSum",total);
     Storage.set("cart",Cart);
     console.log("cart: ", Cart);
 }
