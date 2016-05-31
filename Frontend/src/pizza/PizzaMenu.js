@@ -6,6 +6,7 @@ var Pizza_List = require('../Pizza_List');
 var $pizza_list = $("#pizza_list");
 
 
+
     //Онволення однієї піци
     function showPizzaList(list) {
         //Очищаємо старі піци в кошику
@@ -19,11 +20,11 @@ var $pizza_list = $("#pizza_list");
             //var need_to_pay=0;
 
             $node.find(".buy-big").click(function(){
-                console.log("buy big");
+                console.log("buy big pressed");
                 PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big);
             });
             $node.find(".buy-small").click(function(){
-                console.log("buy small");
+                console.log("buy small pressed");
                 PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small);
             });
 
@@ -83,40 +84,46 @@ function filterPizza(filter) {
     showPizzaList(pizza_shown);
 
 }
-
+$("li").click(function() {
+    $("li").removeClass("active");
+    $(this).addClass("active");
+});
 
 $("#all").click(function(){
-    $(".allPizzas").text("Усі піцци:"+8);
-  //  $("#IK").text(5);
+    console.log("all");
+    $(".allPizzas").html("Усі піцци " + '<div class="orangeBox badge btn-circle">'  +8 +'</div>');
+    
     filterPizza('all');
 });
 
 $("#meat").click(function(){
-   $(".allPizzas").text("М'ясні піци:"+5);
+    console.log("meat");
+   $(".allPizzas").html("М'ясні піци "  + '<div class="orangeBox badge btn-circle">' +5 +'</div>');
     filterPizza("meat");
 });
 
 
 $("#pineapple").click(function(){
-    $(".allPizzas").text("Піци з ананасами:"+3);
+    console.log("pineapple");
+    $(".allPizzas").html('Піци з ананасами '  + '<div class="orangeBox badge btn-circle">' +3 +'</div>');
     filterPizza('pineapple');
 });
 
 
 $("#mushroom").click(function(){
-    $(".allPizzas").text("Піци з грибами:"+3);
+    $(".allPizzas").html('Піци з грибами ' + '<div class="orangeBox badge btn-circle">' + 3 +'</div>');
     filterPizza('mushroom');
 });
 
 
 $("#ocean").click(function(){
-    $(".allPizzas").text("Піци з морепродуктами:"+2);
+    $(".allPizzas").html('Піци з морепродуктами ' + '<div class="orangeBox badge btn-circle">' + 2 +'</div>');
     filterPizza('ocean');
 });
 
 
 $("#vega").click(function(){
-    $(".allPizzas").text("Вегетаріанські піци:"+1);
+    $(".allPizzas").html('Вегетаріанські піци ' + '<div class="orangeBox badge btn-circle">'+ 1  +'</div>');
     filterPizza('vega');
 });
 

@@ -230,22 +230,25 @@ var PizzaSize = {
 
 var Cart = [];
 var total=0;
-
+var ordered = 0; 
 //HTML element where pizzas situated
-var $cart = $("#card");
+var $cart = $(".orderBox");
 
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
-
+console.log("add to cart work", pizza);
     //Приклад реалізації, можна робити будь-яким іншим способом
     var add_new=true;
     for( var a=0;a<Cart.length;a++){
+        
         if((pizza===Cart[a].pizza)&&(size===Cart[a].size)) {
             Cart[a].quantity += 1;
             add_new=false;
+            console.log("add_new=false;");
         }
     }
     if(add_new===true){
+        console.log("add_new===true", Cart);
         Cart.push({
             pizza: pizza,
             size: size,
@@ -255,7 +258,10 @@ function addToCart(pizza, size) {
 
     //Оновити вміст кошика на сторінці
     total += pizza[size].price;
-    $("#totality").text(total+" грн.");
+    ordered++;
+    $(".ordered").text(ordered);
+    console.log("Refresh");
+    $(".resSum").text(total+" грн.");
     updateCart();
 }
 
@@ -284,8 +290,8 @@ function initialiseCart() {
 
     var saved_sum=Storage.get('totality');
     if(saved_sum){
-        $("#totality").text(saved_sum+" грн.");
-        total=parseInt($("#totality").text());
+        $(".resSum").text(saved_sum+" грн.");
+        total=parseInt($(".resSum").text());
     }
 
     updateCart();
@@ -306,7 +312,7 @@ function updateCart() {
     //Онволення однієї піци
     function showOnePizzaInCart(cart_item) {
         var html_code = Templates.PizzaCart_OneItem(cart_item);
-
+        console.log("cart_item ", cart_item);
         var $node = $(html_code);
         var pricing=parseInt($node.find(".price").text());
         
@@ -327,10 +333,10 @@ function updateCart() {
         });
         $cart.append($node);
         
-        $node.find(".count-clear").click(function () {
+        $node.find(".clearOrder").click(function () {
             removeFromCart(cart_item);
-          //  total -= pricing*counter;
-          //  $("#totality").text(total+" грн.");
+            total -= pricing*counter;
+            $(".resSum").text(total+" грн.");
             updateCart();
         });
         
@@ -339,6 +345,7 @@ function updateCart() {
     Cart.forEach(showOnePizzaInCart);
 
     Storage.set("cart",Cart);
+    console.log("cart: ", Cart);
 }
 
 exports.removeFromCart = removeFromCart;
@@ -361,6 +368,7 @@ var Pizza_List = require('../Pizza_List');
 var $pizza_list = $("#pizza_list");
 
 
+
     //Онволення однієї піци
     function showPizzaList(list) {
         //Очищаємо старі піци в кошику
@@ -374,11 +382,11 @@ var $pizza_list = $("#pizza_list");
             //var need_to_pay=0;
 
             $node.find(".buy-big").click(function(){
-                console.log("buy big");
+                console.log("buy big pressed");
                 PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big);
             });
             $node.find(".buy-small").click(function(){
-                console.log("buy small");
+                console.log("buy small pressed");
                 PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small);
             });
 
@@ -438,40 +446,46 @@ function filterPizza(filter) {
     showPizzaList(pizza_shown);
 
 }
-
+$("li").click(function() {
+    $("li").removeClass("active");
+    $(this).addClass("active");
+});
 
 $("#all").click(function(){
-    $(".allPizzas").text("Усі піцци:"+8);
-  //  $("#IK").text(5);
+    console.log("all");
+    $(".allPizzas").html("Усі піцци " + '<div class="orangeBox badge btn-circle">'  +8 +'</div>');
+    
     filterPizza('all');
 });
 
 $("#meat").click(function(){
-   $(".allPizzas").text("М'ясні піци:"+5);
+    console.log("meat");
+   $(".allPizzas").html("М'ясні піци "  + '<div class="orangeBox badge btn-circle">' +5 +'</div>');
     filterPizza("meat");
 });
 
 
 $("#pineapple").click(function(){
-    $(".allPizzas").text("Піци з ананасами:"+3);
+    console.log("pineapple");
+    $(".allPizzas").html('Піци з ананасами '  + '<div class="orangeBox badge btn-circle">' +3 +'</div>');
     filterPizza('pineapple');
 });
 
 
 $("#mushroom").click(function(){
-    $(".allPizzas").text("Піци з грибами:"+3);
+    $(".allPizzas").html('Піци з грибами ' + '<div class="orangeBox badge btn-circle">' + 3 +'</div>');
     filterPizza('mushroom');
 });
 
 
 $("#ocean").click(function(){
-    $(".allPizzas").text("Піци з морепродуктами:"+2);
+    $(".allPizzas").html('Піци з морепродуктами ' + '<div class="orangeBox badge btn-circle">' + 2 +'</div>');
     filterPizza('ocean');
 });
 
 
 $("#vega").click(function(){
-    $(".allPizzas").text("Вегетаріанські піци:"+1);
+    $(".allPizzas").html('Вегетаріанські піци ' + '<div class="orangeBox badge btn-circle">'+ 1  +'</div>');
     filterPizza('vega');
 });
 
