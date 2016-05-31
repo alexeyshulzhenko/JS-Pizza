@@ -62,6 +62,7 @@ function removeFromCart(cart_item) {
     });
     Cart.splice(Cart.indexOf(cart_item), 1);
     //Після видалення оновити відображення
+    console.log("removed");
     updateCart();
 }
 
@@ -86,6 +87,14 @@ function getPizzaInCart() {
     return Cart;
 }
 
+
+$('.clearOrder').click(function() {
+    Cart.forEach(removeFromCart);
+    ordered = 0;
+    $(".ordered").text(ordered);
+    total = 0;
+    $(".resSum").text(total+" грн.");
+});
 
 function updateCart() {
     //Функція викликається при зміні вмісту кошика
@@ -116,7 +125,8 @@ function updateCart() {
             $node.find(".minusBtn").click(function(){
                 //Збільшуємо кількість замовлених піц
                 cart_item.quantity -= 1;
-
+                ordered--;
+                $(".ordered").text(ordered);
                 total -= pricing;
                 $(".resSum").text(total+" грн.");
 
@@ -125,11 +135,11 @@ function updateCart() {
             });
         }
         else {
-             removeFromCart(cart_item);
             total -= pricing*counter;
             $(".resSum").text(total+" грн.");
-            ordered--;
+            ordered -= counter;
             $(".ordered").text(ordered);
+            removeFromCart(cart_item);
             updateCart();
         }
         
