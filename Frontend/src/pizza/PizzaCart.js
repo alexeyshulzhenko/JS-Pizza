@@ -15,6 +15,7 @@ var PizzaSize = {
 var Cart = [];
 var total=0;
 var ordered = 0; 
+
 //HTML element where pizzas situated
 var $cart = $(".orderBox");
 
@@ -99,7 +100,8 @@ function updateCart() {
         
         var $node = $(html_code);
         var pricing=parseInt($node.find(".price").text());
-        
+         var counter=parseInt($node.find(".quantity").text());
+
         $node.find(".plusBtn").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
@@ -125,7 +127,9 @@ function updateCart() {
         else {
              removeFromCart(cart_item);
             total -= pricing*counter;
-                $(".resSum").text(total+" грн.");
+            $(".resSum").text(total+" грн.");
+            ordered--;
+            $(".ordered").text(ordered);
             updateCart();
         }
         
@@ -135,6 +139,8 @@ function updateCart() {
             removeFromCart(cart_item);
             total -= pricing*counter;
             $(".resSum").text(total+" грн.");
+            ordered -= counter;
+            $(".ordered").text(ordered);
             updateCart();
         });
         
