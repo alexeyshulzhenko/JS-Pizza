@@ -113,9 +113,11 @@ function updateCart() {
 
         $node.find(".plusBtn").click(function(){
             //Збільшуємо кількість замовлених піц
-            cart_item.quantity += 1;
-            total += pricing;
+            cart_item.quantity ++;
+            total += pricing;            
             $(".resSum").text(total+" грн.");
+            ordered ++;
+            $(".ordered").text(ordered);
             //Оновлюємо відображення
             updateCart();
         });
