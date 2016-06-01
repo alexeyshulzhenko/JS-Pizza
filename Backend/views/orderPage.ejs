@@ -1,0 +1,110 @@
+<% include common/header.ejs %>
+
+<div class="main">
+    <div class="contact-form-1">
+                <div class="form-description-1">
+                    1. Контактні дані
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <form class="form-horizontal">
+                            <div class="form-group name-group">
+                                <label class="col-sm-2 control-label">Ім’я</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputName" placeholder="Ім’я Фамілія">
+                                </div>
+                            <span class="name-help-block" style="display:none">
+                                Введіть тільки власне ім’я, без цифр
+                            </span>
+                            </div>
+                            <div class="form-group phone-group">
+                                <label class="col-sm-2 control-label">Телефон</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputPhone" placeholder="+380994010999">
+                                </div>
+                            <span class="phone-help-block" style="display:none">
+                                Введіть номер телефону у форматі +380 або почніть з 0
+                            </span>
+                            </div>
+                            <div class="form-group address-group">
+                                <label class="col-sm-2 control-label">Адреса</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="inputAdress" placeholder="Київ, вул. Спаська, 2">
+                                </div>
+                            <span class="address-help-block" style="display:none">
+                                Введіть адресу доставки піци
+                            </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5 order-summary">
+                        <div class=" bs-callout bs-callout-warning">
+                            <h4>Інформація про замовлення</h4>
+                            <p class="order-summery-time">
+                                <b>Приблизний час доставки:</b> невідомий
+                            </p>
+                            <p class="order-summery-adress">
+                                <b>Адреса доставки:</b> невідома
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group next-step-wrap">
+                        <div class="next-step-width">
+                            <button type="button" class="btn btn-warning btn-block next-step-button">
+                                Далі
+                                <i class="glyphicon glyphicon-chevron-right icon-white">
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="secondBlock">
+            <div class="orderBoxNav">
+                <span class="orderWord">
+                    Замовлення
+                </span>
+                <div class="orangeBox badge btn-circle ordered">0</div>
+                <span class="clearOrder">
+                    <a href="#" class="clearOrder">Очистити замовлення</a>
+                    
+                </span>
+            </div>
+            <div class="orderBox">
+             <!--   <div class="orderedPizza">
+                    <h4>BBQ(Мала)</h4>
+                     <div class="size"><img src="assets/images/size-icon.svg"/>30</div>
+                    <div class="weight"><img src="assets/images/weight.svg"/>460</div>
+                    <div>
+                        <h4 class="price">139грн</h4>
+                     <div class="calculate">
+                                <button class="btn btn-xs btn-danger btn-circle plusBtn roundBtn">
+                                    <i class="glyphicon glyphicon-minus icon-white"></i>
+                                </button>
+                                1
+                                <button class="btn btn-xs btn-success btn-circle minusBtn roundBtn">
+                                    <i class="glyphicon glyphicon-minus icon-white"></i>
+                                </button>
+                                <button class="count-clear btn btn-xs btn-default btn-circle roundBtn">
+                                    <i class="glyphicon glyphicon-remove icon-white"></i>
+                                </button>
+                        </div>  
+                    </div>
+                    <img class="piza-part" src="assets/images/pizza_2.jpg"/>
+                </div>  -->  
+            </div>
+
+            <div class="billBox">
+                <span class="resSumWord"> Сума замовлення</span>
+                <span class="resSum ">0 грн.</span>
+                <div class="orderBtn">
+                    <button class=" btn btn-block btn-primary">Замовити</button>
+                </div>
+                
+            </div>
+        </div>
+</div>
+
+<% include common/footer.ejs %>
